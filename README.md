@@ -37,7 +37,7 @@ Writing engaging, search-optimized social media posts can be time-consuming. Thi
 
 - **Google Chrome** (Latest Stable or Dev/Canary channel recommended)
 - **Local AI Endpoint (Optional but Recommended)**:
-  - **Ollama**: Running locally at `http://localhost:11434` with your preferred model downloaded (e.g. `gemma4:31b-cloud`, `llama3`, etc.).
+  - **Ollama**: Running locally at `http://localhost:11434` with your preferred model downloaded (e.g. `gemma4:31b`, `llama3`, etc.).
   - **LM Studio**: Running local server at `http://localhost:1234` with compatible model loaded.
 - **Chrome Gemini Nano (For Window.ai Fallback)**:
   - Enable `chrome://flags/#optimization-guide-on-device-model` -> Set to "BypassPrefRequirement" or "Enabled".
