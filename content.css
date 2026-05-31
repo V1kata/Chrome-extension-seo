@@ -1,0 +1,178 @@
+/* SEO Social Optimizer AI - Injected Content CSS */
+
+/* Namespace all styles to prevent clash with social media platform styles */
+.seo-optimizer-floating-badge {
+  --badge-bg: rgba(18, 18, 28, 0.85);
+  --badge-border: rgba(255, 255, 255, 0.1);
+  --badge-glow: rgba(147, 51, 234, 0.3);
+  --accent-color: #a855f7;
+  --accent-gradient: linear-gradient(135deg, #a855f7, #6366f1);
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  
+  position: absolute;
+  z-index: 2147483647; /* Maximum possible z-index to overlay on any page elements */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--badge-glow);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.2s, border-color 0.2s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(6px) scale(0.95);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.seo-optimizer-floating-badge.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.seo-optimizer-floating-badge:hover {
+  background: rgba(28, 28, 44, 0.9);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 
+              0 0 20px rgba(168, 85, 247, 0.5), 
+              0 0 4px rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.seo-optimizer-floating-badge:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Badge States */
+.seo-optimizer-floating-badge.loading {
+  cursor: wait;
+  pointer-events: none;
+  background: rgba(15, 15, 24, 0.95);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+  animation: seo-pulse-glow 2s infinite ease-in-out;
+}
+
+.seo-optimizer-floating-badge.success {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.seo-optimizer-floating-badge.error {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+/* Inner Elements */
+.seo-optimizer-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--accent-color);
+  transition: transform 0.3s ease, color 0.3s;
+}
+
+.seo-optimizer-floating-badge:hover .seo-optimizer-badge-icon {
+  transform: rotate(15deg) scale(1.1);
+  color: #818cf8;
+}
+
+.seo-optimizer-floating-badge.success .seo-optimizer-badge-icon {
+  color: #34d399;
+}
+
+.seo-optimizer-floating-badge.error .seo-optimizer-badge-icon {
+  color: #f87171;
+}
+
+.seo-optimizer-badge-text {
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+/* Spinner Animation */
+.seo-optimizer-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: seo-spin 0.8s linear infinite;
+}
+
+@keyframes seo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes seo-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(147, 51, 234, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(147, 51, 234, 0.6), 0 0 10px rgba(99, 102, 241, 0.4);
+  }
+}
+
+/* Micro Toast/Notification inside social media pages */
+.seo-optimizer-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(18, 18, 28, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.seo-optimizer-toast.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.seo-optimizer-toast.success {
+  border-left: 4px solid #10b981;
+}
+
+.seo-optimizer-toast.error {
+  border-left: 4px solid #ef4444;
+}
+
+.seo-optimizer-toast-icon {
+  font-size: 16px;
+}

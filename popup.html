@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Social Optimizer AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <span class="logo-icon">✨</span>
+        <h1 class="title">SEO Optimizer <span class="gradient-text">AI</span></h1>
+      </div>
+      <div class="subtitle">Real-time local LLM social media copy optimizer</div>
+    </header>
+
+    <!-- Connection Grid (Status Indicators) -->
+    <section class="status-section">
+      <div class="status-card" id="ollama-status-card">
+        <div class="status-header">
+          <span class="status-name">Ollama</span>
+          <span class="status-indicator offline" id="ollama-indicator"></span>
+        </div>
+        <div class="status-details">
+          <span id="ollama-model-badge" class="model-badge">gemma4:31b</span>
+          <span id="ollama-text" class="status-text">Checking...</span>
+        </div>
+      </div>
+
+      <div class="status-card" id="lmstudio-status-card">
+        <div class="status-header">
+          <span class="status-name">LM Studio</span>
+          <span class="status-indicator offline" id="lmstudio-indicator"></span>
+        </div>
+        <div class="status-details">
+          <span id="lmstudio-model-badge" class="model-badge">qwen2.5-coder</span>
+          <span id="lmstudio-text" class="status-text">Checking...</span>
+        </div>
+      </div>
+
+      <div class="status-card" id="windowai-status-card">
+        <div class="status-header">
+          <span class="status-name">Window.ai</span>
+          <span class="status-indicator offline" id="windowai-indicator"></span>
+        </div>
+        <div class="status-details">
+          <span id="windowai-model-badge" class="model-badge">Built-in AI</span>
+          <span id="windowai-text" class="status-text">Checking...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" data-tab="settings">Settings</button>
+      <button class="tab-btn" data-tab="playground">Test Playground</button>
+    </nav>
+
+    <!-- Tab Contents -->
+    <main class="tab-content">
+      <!-- Settings Tab -->
+      <div class="tab-pane active" id="tab-settings">
+        <!-- Ollama Inputs -->
+        <div class="settings-group">
+          <div class="group-title">Ollama Configuration</div>
+          <div class="form-control">
+            <label for="ollama-url">Server URL</label>
+            <input type="text" id="ollama-url" placeholder="http://localhost:11434">
+          </div>
+          <div class="form-control">
+            <label for="ollama-model">Model Name</label>
+            <input type="text" id="ollama-model" placeholder="gemma4:31b-cloud">
+          </div>
+        </div>
+
+        <!-- LM Studio Inputs -->
+        <div class="settings-group">
+          <div class="group-title">LM Studio Configuration (Fallback)</div>
+          <div class="form-control">
+            <label for="lmstudio-url">Server URL</label>
+            <input type="text" id="lmstudio-url" placeholder="http://localhost:1234">
+          </div>
+          <div class="form-control">
+            <label for="lmstudio-model">Model Name</label>
+            <input type="text" id="lmstudio-model" placeholder="qwen2.5-coder-7b-instruct">
+          </div>
+        </div>
+
+        <!-- Prompt Config -->
+        <div class="settings-group">
+          <div class="group-title-row">
+            <span class="group-title">SEO System Prompt</span>
+            <button class="reset-btn" id="reset-prompt-btn">Reset</button>
+          </div>
+          <div class="form-control">
+            <textarea id="system-prompt" rows="5" placeholder="Define how the AI optimizes your text..."></textarea>
+          </div>
+        </div>
+
+        <!-- Action Row -->
+        <div class="action-row">
+          <div id="save-status" class="save-status">Settings saved!</div>
+          <button class="save-btn" id="save-settings-btn">Save Settings</button>
+        </div>
+      </div>
+
+      <!-- Playground Tab -->
+      <div class="tab-pane" id="tab-playground">
+        <div class="form-control">
+          <label for="playground-input">Original Post Text</label>
+          <textarea id="playground-input" rows="4" placeholder="Write a draft post or comment here to test optimization..."></textarea>
+        </div>
+
+        <button class="primary-btn" id="run-test-btn">
+          <span id="btn-text">Optimize Post</span>
+          <span class="btn-spinner hidden" id="btn-spinner"></span>
+        </button>
+
+        <!-- Test Results (Hidden by default) -->
+        <div class="test-result-container hidden" id="test-result-container">
+          <div class="result-header">
+            <span>Optimized Result (<span id="result-provider">Ollama</span>)</span>
+            <button class="copy-btn" id="copy-result-btn">Copy</button>
+          </div>
+          <div class="result-box" id="playground-output"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>Local LLM Integration Engine</div>
+      <div class="footer-version">v1.0.0</div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
